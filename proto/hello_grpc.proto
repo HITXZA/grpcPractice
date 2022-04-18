@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "./;hello_grpc";
+package hello_grpc;
+message Req{
+    string message = 1 ;
+}
+message Res{
+    string message = 1 ;
+}
+
+message Req2{
+    string name = 1;
+    uint32 age = 2 ;
+    string message = 3;
+}
+message Res2{
+    string name = 1;
+    uint32 age = 2 ;
+    string message = 3;
+}
+service HelloGRPC{
+    rpc SayHi(Req) returns (Res);
+    rpc SayHello(Req2)  returns(Res2);
+}
